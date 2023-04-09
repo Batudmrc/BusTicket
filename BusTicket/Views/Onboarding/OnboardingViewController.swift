@@ -32,7 +32,7 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        slides = [OnboardingSlide(title: "Birinci Slide Başlığı Bu Uzasın", description: "Birinci slaytın alt başlığı burada yazıyor olmalı dayko test için uzattım biraz", image: UIImage(named: "test")!),OnboardingSlide(title: "İkinci Slide Başlığı", description: "İkinci slaytın alt başlığı burada yazıyor olmalı dayko test için uzattım biraz", image: UIImage(named: "test")!),OnboardingSlide(title: "Üçüncü Slide Başlığı", description: "Üçüncü slaytın alt başlığı burada yazıyor olmalı dayko test için uzattım biraz", image: UIImage(named: "test")!)]
+        slides = [OnboardingSlide(title: "Otobüs Bileti Almak Hiç Bu Kadar Kolay Olmamıştı!", description: "Tek yapmanız gereken seyahat tarihlerinizi seçmek ve gideceğiniz nokteleri belirlemek. Geri kalan her şeyi uygulamamız hallediyor!", image: UIImage(named: "bus")!),OnboardingSlide(title: "Hızlı ve Güvenli Online Ödeme İşlemleri", description: "Saniyeler içinde ödeme yapabilirsiniz. Tüm ödemeleriniz güvenli bir şekilde işlenir ve hiçbir kişisel bilgi üçüncü taraflarla paylaşılmaz.", image: UIImage(named: "credit-card")!),OnboardingSlide(title: "İndirimli Fiyatlarla Yolculuk Keyfi", description: "Uygulamamızda bulunan indirimli fiyatlarla, yolculuklarınızı daha ucuza yapabilirsiniz. Uygulamamızdaki fırsatları takip ederek daha da fazla indirim kazanabilirsiniz.", image: UIImage(named: "discount")!)]
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
