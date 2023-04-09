@@ -7,5 +7,6 @@ target 'BusTicket' do
 
   # Pods for BusTicket
     pod 'ALBusSeatView'
+    pod 'lottie-ios'
 
 end

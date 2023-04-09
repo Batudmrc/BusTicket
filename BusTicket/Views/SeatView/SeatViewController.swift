@@ -9,6 +9,7 @@ import UIKit
 import ALBusSeatView
 class SeatViewController: UIViewController {
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var seatView: ALBusSeatView!
     @IBOutlet weak var nameField: UITextField!
@@ -27,6 +28,9 @@ class SeatViewController: UIViewController {
         seatView.delegate = dataManager
         seatView.dataSource = dataManager
         
+        backButton.contentMode = .scaleToFill
+        backButton.clipsToBounds = true
+        
         let mock = MockSeatCreater()
         var first = mock.create(count: 45)
         
@@ -42,6 +46,10 @@ class SeatViewController: UIViewController {
         seatView?.reload()
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        
+        dismiss(animated: true)
+    }
     @IBAction func payButton(_ sender: Any) {
         if idField.text != ""  && nameField.text != "" {
             

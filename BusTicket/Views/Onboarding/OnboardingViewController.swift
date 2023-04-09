@@ -6,11 +6,9 @@
 //
 
 import UIKit
-
 class OnboardingViewController: UIViewController {
 
 
-    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,7 +30,7 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        slides = [OnboardingSlide(title: "Otobüs Bileti Almak Hiç Bu Kadar Kolay Olmamıştı!", description: "Tek yapmanız gereken seyahat tarihlerinizi seçmek ve gideceğiniz nokteleri belirlemek. Geri kalan her şeyi uygulamamız hallediyor!", image: UIImage(named: "bus")!),OnboardingSlide(title: "Hızlı ve Güvenli Online Ödeme İşlemleri", description: "Saniyeler içinde ödeme yapabilirsiniz. Tüm ödemeleriniz güvenli bir şekilde işlenir ve hiçbir kişisel bilgi üçüncü taraflarla paylaşılmaz.", image: UIImage(named: "credit-card")!),OnboardingSlide(title: "İndirimli Fiyatlarla Yolculuk Keyfi", description: "Uygulamamızda bulunan indirimli fiyatlarla, yolculuklarınızı daha ucuza yapabilirsiniz. Uygulamamızdaki fırsatları takip ederek daha da fazla indirim kazanabilirsiniz.", image: UIImage(named: "discount")!)]
+        slides = [OnboardingSlide(title: "Otobüs Bileti Almak Hiç Bu Kadar Kolay Olmamıştı!", description: "Tek yapmanız gereken seyahat tarihlerinizi seçmek ve gideceğiniz nokteleri belirlemek. Geri kalan her şeyi uygulamamız hallediyor!", image: "bus"),OnboardingSlide(title: "Hızlı ve Güvenli Online Ödeme İşlemleri", description: "Saniyeler içinde ödeme yapabilirsiniz. Tüm ödemeleriniz güvenli bir şekilde işlenir ve hiçbir kişisel bilgi üçüncü taraflarla paylaşılmaz.", image: "payment"),OnboardingSlide(title: "İndirimli Fiyatlarla Yolculuk Keyfi", description: "Kuponlarla, yolculuklarınızı daha ucuza yapabilirsiniz. Uygulamamızdaki fırsatları takip ederek daha da fazla indirim kazanabilirsiniz.", image: "coupon")]
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {

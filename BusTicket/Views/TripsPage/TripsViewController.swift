@@ -9,6 +9,9 @@ import UIKit
 
 class TripsViewController: UIViewController {
 
+
+
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var topButton: UIButton!
     var trips = [BusTrip]()
     var ticket = Ticket()
@@ -26,6 +29,9 @@ class TripsViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
         
+        backButton.contentMode = .scaleToFill
+        backButton.clipsToBounds = true
+        
         topButton.layer.borderWidth = 0.5
         topButton.layer.cornerRadius = 5
         topButton.layer.borderColor = .init(red: 255, green: 255, blue: 255, alpha: 1)
@@ -42,6 +48,12 @@ class TripsViewController: UIViewController {
         
         self.tableView.register(UINib(nibName: "TripsTableViewCell", bundle: nil), forCellReuseIdentifier: "tripCell")
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    
 }
 extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

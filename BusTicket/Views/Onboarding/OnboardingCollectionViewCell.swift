@@ -6,9 +6,11 @@
 //
 
 import UIKit
-
+import Lottie
 class OnboardingCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var LottieAnimationView: LottieAnimationView!
     static let identifier = String(describing: OnboardingCollectionViewCell.self)
     
     @IBOutlet weak var slideDescription: UILabel!
@@ -16,8 +18,13 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     func setup(_ slide: OnboardingSlide) {
-        imageView.image = slide.image
         title.text = slide.title
         slideDescription.text = slide.description
+        let animation = LottieAnimation.named(slide.image!)
+        
+        LottieAnimationView.animation = animation
+        LottieAnimationView.loopMode = .loop
+        if !LottieAnimationView.isAnimationPlaying{ LottieAnimationView.play() }
     }
-}
+    
+    }
