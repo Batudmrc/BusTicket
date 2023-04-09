@@ -12,8 +12,8 @@ var allTickets = [Ticket]()
 var seatStubs = [SeatStub]()
 
 class HomePageViewController: UIViewController {
-
-
+    
+    
     @IBOutlet weak var dateLabel: UITextField!
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var fromLabel: UILabel!
@@ -21,6 +21,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var todayButton: UIButton!
     @IBOutlet weak var cardView: CardView!
     
+    var ticket = Ticket()
     var todaysDateAsString = String()
     var todayDateAsDate = Date()
     let datePicker = UIDatePicker()
@@ -39,11 +40,11 @@ class HomePageViewController: UIViewController {
     }
     
     // Destination Selection
-    
+    // In this function, I create a tap gesture and I use tags to differenciate labels
     @IBAction func tapFunction(_ sender: UITapGestureRecognizer) {
         self.itemsTVC.delegate = self
         if let label = sender.view as? UILabel {
-                let tag = label.tag
+            let tag = label.tag
             if tag == 1 {
                 selection = fromLabel
             }
@@ -57,21 +58,22 @@ class HomePageViewController: UIViewController {
             sheet.dismissalTransitionWillBegin()
         }
         self.present(self.itemsTVC, animated: true)
-        }
-        
+    }
+    
     func setupLabelTap(for label: UILabel, withTag tag: Int) {
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction(_:)))
-            label.isUserInteractionEnabled = true
-            label.addGestureRecognizer(labelTap)
-            label.tag = tag
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(labelTap)
+        label.tag = tag
     }
     
     // Destination Selection
     
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dateDoneButton))
-        toolbar.setItems([doneBtn], animated: true)
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(title: "Seç", style: .done, target: nil, action: #selector(dateDoneButton))
+        toolbar.setItems([flexSpace,doneBtn,flexSpace], animated: true)
         toolbar.sizeToFit()
         return toolbar
     }
@@ -93,7 +95,6 @@ class HomePageViewController: UIViewController {
     func setupButtons() {
         todayButton.layer.borderWidth = 0.5
         todayButton.layer.cornerRadius = 3
-        tomorrowButton.layer.borderWidth = 0
         tomorrowButton.layer.cornerRadius = 3
     }
     @objc func dateDoneButton() {
@@ -107,44 +108,65 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func todayBtnTapped(_ sender: UIButton) {
-       
-        // Hocaya sor renk değiştirme
+        
         UIView.animate(withDuration: 0.2) {
-                self.todayButton.layer.borderWidth = 0 // Remove border from button 1
-                self.tomorrowButton.layer.borderWidth = 1 // Add border to button 2
-                self.tomorrowButton.layer.borderColor = UIColor.black.cgColor // Set border color of button 2
-            }
+            self.tomorrowButton.layer.borderWidth = 0
+            self.todayButton.layer.borderWidth = 1
+            self.todayButton.layer.borderColor = UIColor.black.cgColor
+        }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-        self.dateLabel.text = dateFormatter.string(from: Date())
+        UIView.transition(with: dateLabel, duration: 0.15, options: .transitionCrossDissolve, animations: {
+            self.dateLabel.text = dateFormatter.string(from: Date())
+        }, completion: nil)
+        
+        datePicker.datePickerMode = .date
+        datePicker.date = Date()
+        todaysDateAsString = self.dateLabel.text!
     }
     
     @IBAction func tomorrowBtnTapped(_ sender: UIButton) {
-        
+        UIView.animate(withDuration: 0.2) {
+            self.todayButton.layer.borderWidth = 0
+            self.tomorrowButton.layer.borderWidth = 1
+            self.tomorrowButton.layer.borderColor = UIColor.black.cgColor
+        }
+        let calendar = Calendar.current
+        let tomorrowDate = calendar.date(byAdding: .day, value: 1, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        UIView.transition(with: dateLabel, duration: 0.15, options: .transitionCrossDissolve, animations: {
+            self.dateLabel.text = dateFormatter.string(from: tomorrowDate!)
+        }, completion: nil)
+        datePicker.datePickerMode = .date
+        datePicker.date = tomorrowDate!
+        todaysDateAsString = self.dateLabel.text!
     }
     
     // Passing Data
     
     @IBAction func findTrips(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "TripsVC") as! TripsViewController
-        var ticket = Ticket()
         ticket.to = toLabel.text
         ticket.from = fromLabel.text
         
         // Formatting date
-        
-        let formatter = DateFormatter()
+        let day = customDateFormat(date: datePicker.date, format: "dd")
+        let month = customDateFormat(date: datePicker.date, format: "mm")
+        let year = customDateFormat(date: datePicker.date, format: "yy")
+       /* let formatter = DateFormatter()
         formatter.dateFormat = "dd"
         let day = formatter.string(from: datePicker.date)
         formatter.dateFormat = "MM"
         let month = formatter.string(from: datePicker.date)
         formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: datePicker.date)
+        let year = formatter.string(from: datePicker.date)*/
         
         ticket.date = TicketDate(day: day,month: month,year: year)
-    
+        
         // Passing ticket date to TripsViewController
         controller.ticket = ticket
         controller.selectedDate = todaysDateAsString
@@ -152,16 +174,38 @@ class HomePageViewController: UIViewController {
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)
     }
+    
+    func customDateFormat(date: Date, format: String) -> String {
+        
+        let formatter = DateFormatter()
+        switch format {
+        case "dd":
+            formatter.dateFormat = "dd"
+            let day = formatter.string(from: date)
+            return day
+        case "mm":
+            formatter.dateFormat = "MM"
+            let month = formatter.string(from: date)
+            return month
+        case "yy":
+            formatter.dateFormat = "yy"
+            let year = formatter.string(from: date)
+            return year
+        default:
+            break
+        }
+        return "fail"
+    }
 }
 
 extension HomePageViewController: CitiesTableViewControllerDelegate {
     func citiesTableViewControllerDidSelect(city: String, forLabel label: UILabel) {
         if itemsTVC.sheetPresentationController != nil {
-             dismiss(animated: true)
+            dismiss(animated: true)
         }
         UIView.transition(with: label, duration: 0.15, options: .transitionCrossDissolve, animations: {
-                label.text = city
-            }, completion: nil)
+            label.text = city
+        }, completion: nil)
     }
 }
 
