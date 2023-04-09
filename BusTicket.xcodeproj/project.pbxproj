@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B634CDA29E364590070400D /* MyTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B634CD929E364590070400D /* MyTicketsViewController.swift */; };
+		3B634CDD29E3678F0070400D /* MyTicketsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B634CDB29E3678F0070400D /* MyTicketsTableViewCell.swift */; };
+		3B634CDE29E3678F0070400D /* MyTicketsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B634CDC29E3678F0070400D /* MyTicketsTableViewCell.xib */; };
 		3B8FD94029D816F900B6A962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FD93F29D816F900B6A962 /* AppDelegate.swift */; };
 		3B8FD94229D816F900B6A962 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FD94129D816F900B6A962 /* SceneDelegate.swift */; };
 		3B8FD94729D816F900B6A962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8FD94529D816F900B6A962 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		2E911C720C22567022C2DD53 /* Pods_BusTicket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusTicket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B634CD929E364590070400D /* MyTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsViewController.swift; sourceTree = "<group>"; };
+		3B634CDB29E3678F0070400D /* MyTicketsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsTableViewCell.swift; sourceTree = "<group>"; };
+		3B634CDC29E3678F0070400D /* MyTicketsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTicketsTableViewCell.xib; sourceTree = "<group>"; };
 		3B8FD93C29D816F900B6A962 /* BusTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8FD93F29D816F900B6A962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B8FD94129D816F900B6A962 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B634CD829E364190070400D /* MyTickets */ = {
+			isa = PBXGroup;
+			children = (
+				3B634CD929E364590070400D /* MyTicketsViewController.swift */,
+			);
+			path = MyTickets;
+			sourceTree = "<group>";
+		};
 		3B8FD93329D816F900B6A962 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +147,7 @@
 		3B8FD95C29D81DA800B6A962 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3B634CD829E364190070400D /* MyTickets */,
 				3BE7598F29DF0F2E0055FDE4 /* SuccesView */,
 				3BE7598529DEB5420055FDE4 /* SeatView */,
 				3BCE1C3829DDAF000049AB85 /* TripsPage */,
@@ -181,6 +196,8 @@
 			children = (
 				3BCE1C3C29DDB1B90049AB85 /* TripsTableViewCell.swift */,
 				3BCE1C3D29DDB1B90049AB85 /* TripsTableViewCell.xib */,
+				3B634CDB29E3678F0070400D /* MyTicketsTableViewCell.swift */,
+				3B634CDC29E3678F0070400D /* MyTicketsTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -288,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B634CDE29E3678F0070400D /* MyTicketsTableViewCell.xib in Resources */,
 				3BCE1C3F29DDB1B90049AB85 /* TripsTableViewCell.xib in Resources */,
 				3B8FD94C29D816F900B6A962 /* LaunchScreen.storyboard in Resources */,
 				3B8FD94929D816F900B6A962 /* Assets.xcassets in Resources */,
@@ -353,9 +371,11 @@
 				3B8FD95F29D81E2B00B6A962 /* OnboardingViewController.swift in Sources */,
 				3BD4398429DB209A00426AB9 /* CitiesTableViewController.swift in Sources */,
 				3B8FD95529D8174A00B6A962 /* Passenger.swift in Sources */,
+				3B634CDD29E3678F0070400D /* MyTicketsTableViewCell.swift in Sources */,
 				3B8FD94229D816F900B6A962 /* SceneDelegate.swift in Sources */,
 				3B8FD95B29D817D700B6A962 /* Ticket.swift in Sources */,
 				3BCE1C3E29DDB1B90049AB85 /* TripsTableViewCell.swift in Sources */,
+				3B634CDA29E364590070400D /* MyTicketsViewController.swift in Sources */,
 				3BA9930A29DA399900E575C8 /* HomePageViewController.swift in Sources */,
 				3BE7598E29DEB6400055FDE4 /* MockSeatCreater.swift in Sources */,
 				3BCE1C3A29DDAF5C0049AB85 /* TripsViewController.swift in Sources */,

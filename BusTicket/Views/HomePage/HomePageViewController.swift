@@ -157,13 +157,7 @@ class HomePageViewController: UIViewController {
         let day = customDateFormat(date: datePicker.date, format: "dd")
         let month = customDateFormat(date: datePicker.date, format: "mm")
         let year = customDateFormat(date: datePicker.date, format: "yy")
-       /* let formatter = DateFormatter()
-        formatter.dateFormat = "dd"
-        let day = formatter.string(from: datePicker.date)
-        formatter.dateFormat = "MM"
-        let month = formatter.string(from: datePicker.date)
-        formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: datePicker.date)*/
+
         
         ticket.date = TicketDate(day: day,month: month,year: year)
         
@@ -196,6 +190,16 @@ class HomePageViewController: UIViewController {
         }
         return "fail"
     }
+    
+    
+    @IBAction func myTicketsTapped(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "myTickets") as! MyTicketsViewController
+        controller.modalPresentationStyle = .fullScreen
+        controller.myTickets = allTickets
+        
+        present(controller, animated: true)
+    }
+    
 }
 
 extension HomePageViewController: CitiesTableViewControllerDelegate {

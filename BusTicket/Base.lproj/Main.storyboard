@@ -381,10 +381,25 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tek-er-SMp">
+                                <rect key="frame" x="114" y="693" width="165" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ugC-q2-DEI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Biletlerim" cornerStyle="medium">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <color key="baseBackgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="myTicketsTapped:" destination="Qgi-0G-TT7" eventType="touchUpInside" id="aku-Jn-Xq9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mrN-Ze-tce"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Tek-er-SMp" firstAttribute="leading" secondItem="mrN-Ze-tce" secondAttribute="leading" constant="114" id="6IJ-eS-X0k"/>
                             <constraint firstItem="mrN-Ze-tce" firstAttribute="trailing" secondItem="MEc-6G-JlT" secondAttribute="trailing" constant="10" id="BJT-oc-wFl"/>
                             <constraint firstItem="EXH-Tf-QL5" firstAttribute="trailing" secondItem="mrN-Ze-tce" secondAttribute="trailing" constant="-10" id="EmE-ba-Wly"/>
                             <constraint firstItem="oa1-Vk-p7B" firstAttribute="trailing" secondItem="mrN-Ze-tce" secondAttribute="trailing" id="J4b-MO-uMC"/>
@@ -396,7 +411,10 @@
                             <constraint firstItem="oa1-Vk-p7B" firstAttribute="leading" secondItem="mrN-Ze-tce" secondAttribute="leading" id="Sam-vN-FiX"/>
                             <constraint firstItem="ZY6-ba-Hdp" firstAttribute="top" secondItem="5v8-MN-mnC" secondAttribute="bottom" constant="7.3300000000000001" id="TsH-fh-MVW"/>
                             <constraint firstItem="5v8-MN-mnC" firstAttribute="leading" secondItem="mrN-Ze-tce" secondAttribute="leading" constant="50" id="Whs-YD-74U"/>
+                            <constraint firstItem="mrN-Ze-tce" firstAttribute="trailing" secondItem="Tek-er-SMp" secondAttribute="trailing" constant="114" id="ar8-bu-lha"/>
                             <constraint firstItem="mrN-Ze-tce" firstAttribute="trailing" secondItem="ZY6-ba-Hdp" secondAttribute="trailing" constant="95" id="bOo-pr-bX9"/>
+                            <constraint firstItem="mrN-Ze-tce" firstAttribute="bottom" secondItem="Tek-er-SMp" secondAttribute="bottom" constant="81" id="cPf-so-Sjt"/>
+                            <constraint firstItem="Tek-er-SMp" firstAttribute="top" secondItem="ZY6-ba-Hdp" secondAttribute="bottom" constant="8" symbolic="YES" id="gTf-PI-2oY"/>
                             <constraint firstItem="mrN-Ze-tce" firstAttribute="bottom" secondItem="ZY6-ba-Hdp" secondAttribute="bottom" constant="133" id="hWV-9k-OH3"/>
                             <constraint firstItem="MEc-6G-JlT" firstAttribute="leading" secondItem="mrN-Ze-tce" secondAttribute="leading" constant="10" id="rEE-MV-rOc"/>
                             <constraint firstItem="oa1-Vk-p7B" firstAttribute="top" secondItem="YWv-hr-GOU" secondAttribute="top" id="wkw-Vq-1aA"/>
@@ -417,6 +435,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bch-l4-Oo6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1878.6259541984732" y="-35.211267605633807"/>
+        </scene>
+        <!--My Tickets View Controller-->
+        <scene sceneID="LHW-sb-Zjk">
+            <objects>
+                <viewController storyboardIdentifier="myTickets" id="LNS-Gr-ORn" customClass="MyTicketsViewController" customModule="BusTicket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HaE-Nv-1EO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ah7-KJ-Oug">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="141"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wq6-pP-2l4">
+                                        <rect key="frame" x="114" y="67" width="165" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bubilet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cE-XH-PMw">
+                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=".com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOd-YU-jSo">
+                                                <rect key="frame" x="103.66666666666664" y="0.0" width="61.333333333333329" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Wq6-pP-2l4" firstAttribute="top" secondItem="Ah7-KJ-Oug" secondAttribute="top" constant="67" id="Cna-dG-BWl"/>
+                                    <constraint firstAttribute="height" constant="141" id="Owr-r3-32H"/>
+                                    <constraint firstItem="Wq6-pP-2l4" firstAttribute="centerX" secondItem="Ah7-KJ-Oug" secondAttribute="centerX" id="eGQ-3g-A6g"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k3u-S5-ONx">
+                                <rect key="frame" x="0.0" y="149" width="393" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myTicketCell" id="gK6-Fm-8dC">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gK6-Fm-8dC" id="e9e-1q-6tf">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L65-et-bxH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k3u-S5-ONx" firstAttribute="top" secondItem="HaE-Nv-1EO" secondAttribute="top" constant="149" id="7uM-VJ-C83"/>
+                            <constraint firstItem="Ah7-KJ-Oug" firstAttribute="top" secondItem="HaE-Nv-1EO" secondAttribute="top" id="Hau-S1-Vz7"/>
+                            <constraint firstItem="Ah7-KJ-Oug" firstAttribute="leading" secondItem="L65-et-bxH" secondAttribute="leading" id="Hk7-Ud-SU7"/>
+                            <constraint firstItem="k3u-S5-ONx" firstAttribute="trailing" secondItem="L65-et-bxH" secondAttribute="trailing" id="QSz-dM-aaa"/>
+                            <constraint firstItem="k3u-S5-ONx" firstAttribute="leading" secondItem="L65-et-bxH" secondAttribute="leading" id="Xia-6O-28u"/>
+                            <constraint firstItem="Ah7-KJ-Oug" firstAttribute="trailing" secondItem="L65-et-bxH" secondAttribute="trailing" id="omU-yU-qwv"/>
+                            <constraint firstAttribute="bottom" secondItem="k3u-S5-ONx" secondAttribute="bottom" id="sMn-VQ-SoU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="k3u-S5-ONx" id="C9F-Yt-ltl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QAA-6F-x9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878.6259541984732" y="662.67605633802816"/>
         </scene>
         <!--Trips View Controller-->
         <scene sceneID="b8Y-ZA-Wmh">
