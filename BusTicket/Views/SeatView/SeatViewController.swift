@@ -47,12 +47,10 @@ class SeatViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        
         dismiss(animated: true)
     }
     @IBAction func payButton(_ sender: Any) {
         if idField.text != ""  && nameField.text != "" {
-            
             if let text = nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                text.components(separatedBy: " ").count < 2 {
                 let alert = UIAlertController(title: "Hata", message: "Lütfen bir soyisim giriniz", preferredStyle: .alert)
@@ -70,7 +68,6 @@ class SeatViewController: UIViewController {
                 alert.addAction(okAction)
                 present(alert, animated: true, completion: nil)
             } else {
-                
                 let idInt = Int(idField.text!)
                 passenger = Passenger(name: nameField.text!, id: idInt!)
                 ticket.passenger = passenger
@@ -88,11 +85,9 @@ class SeatViewController: UIViewController {
                 controller.ticket = ticket
                 controller.modalPresentationStyle = .fullScreen
                 present(controller, animated: true)
-                
             }
         } else {
             showAlert(title: "Hata", message: "Lütfen tüm alanları doldurunuz")
-            
         }
     }
     

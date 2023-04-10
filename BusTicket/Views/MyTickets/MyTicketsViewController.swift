@@ -9,6 +9,7 @@ import UIKit
 
 class MyTicketsViewController: UIViewController {
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var myTickets = [Ticket]()
     
@@ -17,11 +18,19 @@ class MyTicketsViewController: UIViewController {
         print(myTickets)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        backButton.contentMode = .scaleToFill
+        backButton.clipsToBounds = true
+        
+        
         self.tableView.separatorStyle = .none
         self.tableView.register(UINib(nibName: "MyTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "myTicketCell")
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
-
 extension MyTicketsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTickets.count

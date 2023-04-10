@@ -9,10 +9,10 @@ import UIKit
 
 class TripsViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var topButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
     var trips = [BusTrip]()
     var ticket = Ticket()
     var departure = String()
@@ -20,8 +20,6 @@ class TripsViewController: UIViewController {
     var selectedDate = String()
     var todayDateAsDate = Date()
     
-    
-    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         topButton.setTitle(selectedDate, for: .normal)
@@ -48,11 +46,9 @@ class TripsViewController: UIViewController {
         
         self.tableView.register(UINib(nibName: "TripsTableViewCell", bundle: nil), forCellReuseIdentifier: "tripCell")
     }
-    
     @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
 }
 extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +65,7 @@ extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ticket.price = trips[indexPath.row].price
         ticket.clock = trips[indexPath.row].time
@@ -78,6 +75,4 @@ extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
         
         present(controller, animated: true)
     }
-    
-    
 }

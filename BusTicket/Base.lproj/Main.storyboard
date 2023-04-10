@@ -464,12 +464,28 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOC-UO-5Vm">
+                                        <rect key="frame" x="16" y="70" width="31" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="back" imagePadding="0.0">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backButton:" destination="LNS-Gr-ORn" eventType="touchUpInside" id="dOc-dU-qrh"/>
+                                            <action selector="backButtonTapped:" destination="Pl1-g7-Bvm" eventType="touchUpInside" id="Pnl-1w-lKB"/>
+                                            <action selector="backButtonTapped:" destination="9z3-3N-96e" eventType="touchUpInside" id="f6L-yl-IRL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="hOC-UO-5Vm" firstAttribute="leading" secondItem="Ah7-KJ-Oug" secondAttribute="leading" constant="16" id="8vt-8c-G4a"/>
                                     <constraint firstItem="Wq6-pP-2l4" firstAttribute="top" secondItem="Ah7-KJ-Oug" secondAttribute="top" constant="67" id="Cna-dG-BWl"/>
                                     <constraint firstAttribute="height" constant="141" id="Owr-r3-32H"/>
+                                    <constraint firstItem="hOC-UO-5Vm" firstAttribute="top" secondItem="Ah7-KJ-Oug" secondAttribute="top" constant="70" id="Q9N-rp-1w8"/>
+                                    <constraint firstItem="Wq6-pP-2l4" firstAttribute="leading" secondItem="hOC-UO-5Vm" secondAttribute="trailing" constant="67" id="cM4-mZ-dOX"/>
                                     <constraint firstItem="Wq6-pP-2l4" firstAttribute="centerX" secondItem="Ah7-KJ-Oug" secondAttribute="centerX" id="eGQ-3g-A6g"/>
+                                    <constraint firstAttribute="bottom" secondItem="hOC-UO-5Vm" secondAttribute="bottom" constant="41" id="j9K-VG-rWT"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k3u-S5-ONx">
@@ -500,12 +516,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="hOC-UO-5Vm" id="K5L-kV-OXg"/>
                         <outlet property="tableView" destination="k3u-S5-ONx" id="C9F-Yt-ltl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAA-6F-x9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878.6259541984732" y="662.67605633802816"/>
+            <point key="canvasLocation" x="1878.6259541984732" y="661.97183098591552"/>
         </scene>
         <!--Trips View Controller-->
         <scene sceneID="b8Y-ZA-Wmh">
@@ -543,7 +560,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CP5-8V-W1i">
-                                        <rect key="frame" x="0.0" y="57" width="36" height="26"/>
+                                        <rect key="frame" x="16" y="70" width="31" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="back" imagePadding="0.0">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
@@ -555,17 +572,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="CP5-8V-W1i" firstAttribute="top" secondItem="4tx-Nc-gUt" secondAttribute="top" constant="57" id="3Ka-o2-FpY"/>
-                                    <constraint firstAttribute="bottom" secondItem="CP5-8V-W1i" secondAttribute="bottom" constant="58" id="FJS-3Z-HkS"/>
-                                    <constraint firstItem="fZM-G5-FAz" firstAttribute="leading" secondItem="CP5-8V-W1i" secondAttribute="trailing" constant="78" id="I9y-5h-mAQ"/>
+                                    <constraint firstItem="CP5-8V-W1i" firstAttribute="top" secondItem="4tx-Nc-gUt" secondAttribute="top" constant="70" id="JC4-3a-ala"/>
                                     <constraint firstItem="RKa-JI-RgO" firstAttribute="leading" secondItem="4tx-Nc-gUt" secondAttribute="leading" constant="125" id="QBP-jj-6bT"/>
                                     <constraint firstItem="fZM-G5-FAz" firstAttribute="centerX" secondItem="4tx-Nc-gUt" secondAttribute="centerX" id="TZq-e9-QWV"/>
+                                    <constraint firstItem="fZM-G5-FAz" firstAttribute="leading" secondItem="CP5-8V-W1i" secondAttribute="trailing" constant="67" id="U8e-UI-8Au"/>
                                     <constraint firstItem="RKa-JI-RgO" firstAttribute="top" secondItem="4tx-Nc-gUt" secondAttribute="top" constant="106" id="USX-RL-aQ9"/>
                                     <constraint firstItem="fZM-G5-FAz" firstAttribute="top" secondItem="4tx-Nc-gUt" secondAttribute="top" constant="67" id="jsb-ZU-3RG"/>
                                     <constraint firstAttribute="bottom" secondItem="RKa-JI-RgO" secondAttribute="bottom" constant="5" id="oue-Zx-2Ca"/>
-                                    <constraint firstItem="CP5-8V-W1i" firstAttribute="leading" secondItem="4tx-Nc-gUt" secondAttribute="leading" id="qf2-V7-PAY"/>
+                                    <constraint firstAttribute="bottom" secondItem="CP5-8V-W1i" secondAttribute="bottom" constant="41" id="qbz-PG-A8F"/>
                                     <constraint firstAttribute="trailing" secondItem="RKa-JI-RgO" secondAttribute="trailing" constant="125" id="s88-RA-NxV"/>
                                     <constraint firstAttribute="height" constant="141" id="s94-w8-Yfm"/>
+                                    <constraint firstItem="CP5-8V-W1i" firstAttribute="leading" secondItem="4tx-Nc-gUt" secondAttribute="leading" constant="16" id="upV-hp-IEJ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-dM-mFF">
@@ -634,7 +651,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSu-I3-OHr">
-                                        <rect key="frame" x="0.0" y="58" width="36" height="26"/>
+                                        <rect key="frame" x="16" y="70" width="31" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="back" imagePadding="0.0">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
@@ -647,12 +664,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="lSu-I3-OHr" secondAttribute="bottom" constant="57" id="Frt-yo-dqJ"/>
-                                    <constraint firstItem="lSu-I3-OHr" firstAttribute="top" secondItem="gEp-cC-oCy" secondAttribute="top" constant="58" id="LCv-es-Tx1"/>
-                                    <constraint firstItem="lSu-I3-OHr" firstAttribute="leading" secondItem="gEp-cC-oCy" secondAttribute="leading" id="LIp-ov-mjo"/>
+                                    <constraint firstAttribute="bottom" secondItem="lSu-I3-OHr" secondAttribute="bottom" constant="41" id="Frt-yo-dqJ"/>
+                                    <constraint firstItem="lSu-I3-OHr" firstAttribute="top" secondItem="gEp-cC-oCy" secondAttribute="top" constant="70" id="LCv-es-Tx1"/>
+                                    <constraint firstItem="lSu-I3-OHr" firstAttribute="leading" secondItem="gEp-cC-oCy" secondAttribute="leading" constant="16" id="LIp-ov-mjo"/>
                                     <constraint firstAttribute="height" constant="141" id="bQ2-Ge-JNG"/>
                                     <constraint firstItem="nir-b9-jRV" firstAttribute="top" secondItem="gEp-cC-oCy" secondAttribute="top" constant="67" id="dtt-7M-jJh"/>
-                                    <constraint firstItem="nir-b9-jRV" firstAttribute="leading" secondItem="lSu-I3-OHr" secondAttribute="trailing" constant="78" id="oCm-Yo-ihc"/>
+                                    <constraint firstItem="nir-b9-jRV" firstAttribute="leading" secondItem="lSu-I3-OHr" secondAttribute="trailing" constant="67" id="oCm-Yo-ihc"/>
                                     <constraint firstItem="nir-b9-jRV" firstAttribute="centerX" secondItem="gEp-cC-oCy" secondAttribute="centerX" id="ucg-jj-nVZ"/>
                                 </constraints>
                             </view>

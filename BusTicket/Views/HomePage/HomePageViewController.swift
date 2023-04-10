@@ -204,11 +204,17 @@ class HomePageViewController: UIViewController {
     
     
     @IBAction func myTicketsTapped(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "myTickets") as! MyTicketsViewController
-        controller.modalPresentationStyle = .fullScreen
-        controller.myTickets = allTickets
+        if allTickets.isEmpty {
+            showAlert(title: "Hata", message: "Herhangi bir bilet bulunamadı.")
+        } else {
+            let controller = storyboard?.instantiateViewController(withIdentifier: "myTickets") as! MyTicketsViewController
+            controller.modalPresentationStyle = .fullScreen
+            controller.myTickets = allTickets
+            
+            present(controller, animated: true)
+        }
         
-        present(controller, animated: true)
+        
     }
     
 }
