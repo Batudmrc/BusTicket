@@ -15,6 +15,10 @@ class MyTicketsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var toFromLabel: UILabel!
+    
+    var fromLocationTapHandler: (() -> Void)?
+    var toLocationTapHandler: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +29,11 @@ class MyTicketsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func fromLocationTap(_ sender: Any) {
+        fromLocationTapHandler?()
+    }
     
+    @IBAction func toLocationTap(_ sender: Any) {
+        toLocationTapHandler?()
+    }
 }

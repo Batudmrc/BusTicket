@@ -24,6 +24,13 @@ class SeatViewController: UIViewController {
         setupFields(field: nameField,placeholder: "Ad Soyad Giriniz")
         setupFields(field: idField,placeholder: "T.C. Kimlik No Giriniz")
         
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name("SelectedSeatCountExceeded"), object: nil, queue: .main) { [weak self] (_) in
+            if let strongSelf = self {
+                    strongSelf.showAlert(title: "Hata", message: "En fazla 5 adet koltuk seçilebilir")
+                }
+        }
+        
         seatView.config = ExampleSeatConfig()
         seatView.delegate = dataManager
         seatView.dataSource = dataManager

@@ -23,7 +23,7 @@ extension SeatDataManager: ALBusSeatViewDelegate {
         stub.gender = selectionType == .man ? true : false
         if selectedSeatlist.count == 5 {
             // Alert here
-            print("daha fazla koltuk alınamaz")
+            NotificationCenter.default.post(name: Notification.Name("SelectedSeatCountExceeded"), object: nil)
         } else {
             selectedSeatlist.append(stub)
         }

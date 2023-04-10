@@ -476,14 +476,25 @@
                                             <action selector="backButtonTapped:" destination="9z3-3N-96e" eventType="touchUpInside" id="f6L-yl-IRL"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chH-uk-X5G">
+                                        <rect key="frame" x="26" y="106" width="342" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Kalkış-Varış Konumu İçin İconlara Tıkla">
+                                            <color key="baseBackgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.23137254900000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="chH-uk-X5G" firstAttribute="leading" secondItem="Ah7-KJ-Oug" secondAttribute="leading" constant="26" id="0X9-jZ-gYe"/>
                                     <constraint firstItem="hOC-UO-5Vm" firstAttribute="leading" secondItem="Ah7-KJ-Oug" secondAttribute="leading" constant="16" id="8vt-8c-G4a"/>
                                     <constraint firstItem="Wq6-pP-2l4" firstAttribute="top" secondItem="Ah7-KJ-Oug" secondAttribute="top" constant="67" id="Cna-dG-BWl"/>
+                                    <constraint firstItem="chH-uk-X5G" firstAttribute="top" secondItem="Ah7-KJ-Oug" secondAttribute="top" constant="106" id="F7v-eB-hzR"/>
+                                    <constraint firstAttribute="bottom" secondItem="chH-uk-X5G" secondAttribute="bottom" constant="5" id="MZf-nB-anr"/>
                                     <constraint firstAttribute="height" constant="141" id="Owr-r3-32H"/>
                                     <constraint firstItem="hOC-UO-5Vm" firstAttribute="top" secondItem="Ah7-KJ-Oug" secondAttribute="top" constant="70" id="Q9N-rp-1w8"/>
                                     <constraint firstItem="Wq6-pP-2l4" firstAttribute="leading" secondItem="hOC-UO-5Vm" secondAttribute="trailing" constant="67" id="cM4-mZ-dOX"/>
+                                    <constraint firstAttribute="trailing" secondItem="chH-uk-X5G" secondAttribute="trailing" constant="25" id="dKB-jI-WDu"/>
                                     <constraint firstItem="Wq6-pP-2l4" firstAttribute="centerX" secondItem="Ah7-KJ-Oug" secondAttribute="centerX" id="eGQ-3g-A6g"/>
                                     <constraint firstAttribute="bottom" secondItem="hOC-UO-5Vm" secondAttribute="bottom" constant="41" id="j9K-VG-rWT"/>
                                 </constraints>
@@ -518,6 +529,7 @@
                     <connections>
                         <outlet property="backButton" destination="hOC-UO-5Vm" id="K5L-kV-OXg"/>
                         <outlet property="tableView" destination="k3u-S5-ONx" id="C9F-Yt-ltl"/>
+                        <outlet property="topLabel" destination="chH-uk-X5G" id="qSK-AB-jHK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAA-6F-x9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
