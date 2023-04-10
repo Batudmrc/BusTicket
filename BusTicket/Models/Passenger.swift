@@ -8,6 +8,6 @@
 import Foundation
 
 struct Passenger {
-    var name = "İsimsiz"
+    var name = "İsimsiz İsimsiz"
     var id = 0
 }

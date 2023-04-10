@@ -14,6 +14,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var slides: [OnboardingSlide] = []
+    var isLaunchedBefore: Bool!
     
     var currentPage = 0 {
         didSet {
@@ -34,7 +35,12 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        
         if currentPage == slides.count - 1 {
+            
+            isLaunchedBefore = true
+            UserDefaults.standard.set(isLaunchedBefore, forKey: "isLaunched")
+            
             let controller = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! UINavigationController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .crossDissolve
@@ -48,6 +54,9 @@ class OnboardingViewController: UIViewController {
         
     }
     @IBAction func skipButtonTapped(_ sender: Any) {
+        isLaunchedBefore = true
+        UserDefaults.standard.set(isLaunchedBefore, forKey: "isLaunched")
+        
         let controller = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! UINavigationController
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .crossDissolve

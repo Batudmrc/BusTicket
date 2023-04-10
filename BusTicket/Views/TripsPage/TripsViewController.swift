@@ -8,9 +8,9 @@
 import UIKit
 
 class TripsViewController: UIViewController {
-
-
-
+    
+    
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var topButton: UIButton!
     var trips = [BusTrip]()
@@ -52,7 +52,6 @@ class TripsViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
     
 }
 extension TripsViewController: UITableViewDelegate, UITableViewDataSource {

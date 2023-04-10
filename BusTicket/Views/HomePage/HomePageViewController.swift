@@ -150,23 +150,27 @@ class HomePageViewController: UIViewController {
     
     @IBAction func findTrips(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "TripsVC") as! TripsViewController
-        ticket.to = toLabel.text
-        ticket.from = fromLabel.text
-        
-        // Formatting date
-        let day = customDateFormat(date: datePicker.date, format: "dd")
-        let month = customDateFormat(date: datePicker.date, format: "mm")
-        let year = customDateFormat(date: datePicker.date, format: "yy")
-
-        
-        ticket.date = TicketDate(day: day,month: month,year: year)
-        
-        // Passing ticket date to TripsViewController
-        controller.ticket = ticket
-        controller.selectedDate = todaysDateAsString
-        controller.todayDateAsDate = todayDateAsDate
-        controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true)
+        // Check if the selected cities are same
+        if toLabel.text == fromLabel.text {
+            showAlert(title: "Hata", message: "Kalkış yeri ile varış yeri aynı olamaz.")
+        } else {
+            ticket.to = toLabel.text
+            ticket.from = fromLabel.text
+            
+            // Formatting date
+            let day = customDateFormat(date: datePicker.date, format: "dd")
+            let month = customDateFormat(date: datePicker.date, format: "mm")
+            let year = customDateFormat(date: datePicker.date, format: "yy")
+            
+            ticket.date = TicketDate(day: day,month: month,year: year)
+            
+            // Passing ticket date to TripsViewController
+            controller.ticket = ticket
+            controller.selectedDate = todaysDateAsString
+            controller.todayDateAsDate = todayDateAsDate
+            controller.modalPresentationStyle = .fullScreen
+            present(controller, animated: true)
+        }
     }
     
     func customDateFormat(date: Date, format: String) -> String {
@@ -189,6 +193,13 @@ class HomePageViewController: UIViewController {
             break
         }
         return "fail"
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
     

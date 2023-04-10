@@ -17,7 +17,10 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+
+    
     func setup(_ slide: OnboardingSlide) {
+        
         title.text = slide.title
         slideDescription.text = slide.description
         let animation = LottieAnimation.named(slide.image!)

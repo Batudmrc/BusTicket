@@ -110,7 +110,7 @@ class SeatViewController: UIViewController {
 extension SeatViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        
+        // Regex for idField and nameField
         if textField == idField {
             let allowedCharacters = CharacterSet.decimalDigits
             let characterSet = CharacterSet(charactersIn: string)

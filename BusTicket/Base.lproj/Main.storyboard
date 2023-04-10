@@ -12,7 +12,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="BusTicket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="BusTicket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1023,6 +1023,9 @@
             <point key="canvasLocation" x="951.90839694656484" y="-35.211267605633807"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="lAw-MI-NRw"/>
+    </designables>
     <resources>
         <image name="back" width="50" height="50"/>
         <image name="calendar" width="512" height="512"/>

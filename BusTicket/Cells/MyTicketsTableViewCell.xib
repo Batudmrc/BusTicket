@@ -132,6 +132,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateTimeLabel" destination="3zL-ea-28E" id="XKt-nH-WQd"/>
+                <outlet property="nameLabel" destination="qj6-xZ-BAp" id="aww-uO-xYe"/>
+                <outlet property="priceLabel" destination="JNT-9w-opG" id="Mko-P9-zYH"/>
+                <outlet property="seatLabel" destination="g3i-YA-Rj7" id="tXQ-vR-dWH"/>
+                <outlet property="toFromLabel" destination="l15-9U-YY0" id="j7t-ua-3Yy"/>
+                <outlet property="totalPriceLabel" destination="7CK-aO-kEQ" id="HrY-Jn-v9k"/>
+            </connections>
             <point key="canvasLocation" x="183.96946564885496" y="68.309859154929583"/>
         </tableViewCell>
     </objects>
