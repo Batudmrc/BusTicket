@@ -886,13 +886,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD SOYAD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgz-eL-sDb">
-                                        <rect key="frame" x="14" y="95" width="67" height="15.666666666666671"/>
+                                        <rect key="frame" x="14" y="95" width="89" height="15.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.C. KİMLİK NO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51j-Bq-G9d">
-                                        <rect key="frame" x="220.33333333333334" y="94" width="95.666666666666657" height="15.666666666666671"/>
+                                        <rect key="frame" x="220.33333333333334" y="94" width="112.66666666666666" height="15.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -968,7 +968,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="IlH-CF-zFj" secondAttribute="trailing" constant="203" id="2Lm-IP-pBL"/>
-                                    <constraint firstAttribute="trailing" secondItem="51j-Bq-G9d" secondAttribute="trailing" constant="45" id="5hX-RT-u2w"/>
+                                    <constraint firstAttribute="trailing" secondItem="51j-Bq-G9d" secondAttribute="trailing" constant="28" id="5XP-sN-3If"/>
                                     <constraint firstAttribute="bottom" secondItem="sR1-GZ-xvU" secondAttribute="bottom" constant="17" id="68f-tD-8ts"/>
                                     <constraint firstAttribute="trailing" secondItem="G0W-F0-R26" secondAttribute="trailing" constant="36" id="7Yd-Tj-IwU"/>
                                     <constraint firstItem="G0W-F0-R26" firstAttribute="top" secondItem="PXE-dh-JVV" secondAttribute="bottom" constant="45.670000000000002" id="83B-37-4ar"/>
@@ -980,12 +980,12 @@
                                     <constraint firstItem="e5i-aO-6Yh" firstAttribute="top" secondItem="h9L-Qu-IBN" secondAttribute="bottom" constant="7.6699999999999999" id="HEe-1Y-pWW"/>
                                     <constraint firstItem="h9L-Qu-IBN" firstAttribute="top" secondItem="Ud1-sb-91Z" secondAttribute="bottom" constant="16.670000000000002" id="HOk-O9-9Vi"/>
                                     <constraint firstAttribute="trailing" secondItem="h9L-Qu-IBN" secondAttribute="trailing" constant="2" id="IDH-GU-I3k"/>
+                                    <constraint firstAttribute="trailing" secondItem="pgz-eL-sDb" secondAttribute="trailing" constant="258" id="J1f-Hu-tdl"/>
                                     <constraint firstItem="Ud1-sb-91Z" firstAttribute="top" secondItem="IlH-CF-zFj" secondAttribute="bottom" constant="14.33" id="LXl-EN-np0"/>
                                     <constraint firstAttribute="trailing" secondItem="Ud1-sb-91Z" secondAttribute="trailing" constant="211" id="Lrk-56-OeL"/>
                                     <constraint firstItem="fF5-iv-cgJ" firstAttribute="top" secondItem="far-Iq-KeQ" secondAttribute="top" constant="7" id="Luo-JP-Ef3"/>
                                     <constraint firstAttribute="bottom" secondItem="e5i-aO-6Yh" secondAttribute="bottom" constant="50" id="QFW-26-RZt"/>
                                     <constraint firstItem="PXE-dh-JVV" firstAttribute="leading" secondItem="far-Iq-KeQ" secondAttribute="leading" constant="220" id="Tx7-5y-bwg"/>
-                                    <constraint firstAttribute="trailing" secondItem="pgz-eL-sDb" secondAttribute="trailing" constant="280" id="UjI-hU-Heb"/>
                                     <constraint firstItem="Fwf-rh-wXz" firstAttribute="top" secondItem="pgz-eL-sDb" secondAttribute="bottom" constant="14.33" id="Yn4-RG-6CG"/>
                                     <constraint firstItem="G0W-F0-R26" firstAttribute="leading" secondItem="far-Iq-KeQ" secondAttribute="leading" constant="220" id="ZAh-mJ-5vN"/>
                                     <constraint firstItem="cCP-IY-aEd" firstAttribute="leading" secondItem="far-Iq-KeQ" secondAttribute="leading" constant="148" id="aPx-RJ-f4O"/>

@@ -11,14 +11,11 @@ import ALBusSeatView
 class SeatDataManager {
     var seatList = [[SeatStub]]()
     var selectedSeatlist = [SeatStub]()
-    
-    
 }
 
 extension SeatDataManager: ALBusSeatViewDelegate {
     
     func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType, selectionType: ALSelectionType) {
-        
         var stub = seatList[indexPath.section][indexPath.item]
         stub.gender = selectionType == .man ? true : false
         if selectedSeatlist.count == 5 {
@@ -29,17 +26,14 @@ extension SeatDataManager: ALBusSeatViewDelegate {
         }
         seatView.reload()
     }
-    
     func seatView(_ seatView: ALBusSeatView,deSelectAtIndex indexPath: IndexPath,seatType: ALBusSeatType) {
         let stub = seatList[indexPath.section][indexPath.item]
         selectedSeatlist.removeAll(where: { $0.id == stub.id })
-
+        
         seatView.reload()
     }
 }
-
 extension SeatDataManager:  ALBusSeatViewDataSource  {
-    
     func seatView(_ seatView: ALBusSeatView,seatNumberForIndex indexPath: IndexPath) -> String {
         let stub = seatList[indexPath.section][indexPath.item]
         return "\(stub.number)"

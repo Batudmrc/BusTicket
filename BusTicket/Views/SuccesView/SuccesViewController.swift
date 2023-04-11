@@ -8,7 +8,7 @@
 import UIKit
 
 class SuccesViewController: UIViewController {
-
+    
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var chairsLabel: UILabel!
@@ -39,22 +39,12 @@ class SuccesViewController: UIViewController {
         dateLabel.text = "\(dates.day)/\(dates.month)/\(dates.year) - \(clock)"
         guard let price = ticket.price else { return }
         totalPriceLabel.text = "\(price*ticket.selectedChairCount!) TL"
-
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func homePageTappd(_ sender: Any) {
-
         allTickets.append(ticket)
-        //print(allTickets)
-
-
         let controller = storyboard?.instantiateViewController(withIdentifier: "firstVC") as! HomePageViewController
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)
-        
     }
-    
-
 }

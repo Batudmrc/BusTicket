@@ -69,10 +69,10 @@ extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ticket.price = trips[indexPath.row].price
         ticket.clock = trips[indexPath.row].time
+        // Passing data
         let controller = storyboard?.instantiateViewController(withIdentifier: "SeatVC") as! SeatViewController
         controller.modalPresentationStyle = .fullScreen
         controller.ticket = ticket
-        
         present(controller, animated: true)
     }
 }

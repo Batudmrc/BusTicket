@@ -8,18 +8,16 @@
 import UIKit
 
 class TripsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var roadLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var companyImageView: UIImageView!
-        
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

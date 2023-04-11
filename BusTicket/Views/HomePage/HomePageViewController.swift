@@ -108,13 +108,11 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func todayBtnTapped(_ sender: UIButton) {
-        
         UIView.animate(withDuration: 0.2) {
             self.tomorrowButton.layer.borderWidth = 0
             self.todayButton.layer.borderWidth = 1
             self.todayButton.layer.borderColor = UIColor.black.cgColor
         }
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
@@ -156,12 +154,10 @@ class HomePageViewController: UIViewController {
         } else {
             ticket.to = toLabel.text
             ticket.from = fromLabel.text
-            
             // Formatting date
             let day = customDateFormat(date: datePicker.date, format: "dd")
             let month = customDateFormat(date: datePicker.date, format: "mm")
             let year = customDateFormat(date: datePicker.date, format: "yy")
-            
             ticket.date = TicketDate(day: day,month: month,year: year)
             
             // Passing ticket date to TripsViewController
@@ -174,7 +170,6 @@ class HomePageViewController: UIViewController {
     }
     
     func customDateFormat(date: Date, format: String) -> String {
-        
         let formatter = DateFormatter()
         switch format {
         case "dd":
@@ -202,21 +197,17 @@ class HomePageViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
     @IBAction func myTicketsTapped(_ sender: Any) {
         if allTickets.isEmpty {
             showAlert(title: "Hata", message: "Herhangi bir bilet bulunamadı.")
         } else {
+            // Passing data
             let controller = storyboard?.instantiateViewController(withIdentifier: "myTickets") as! MyTicketsViewController
             controller.modalPresentationStyle = .fullScreen
             controller.myTickets = allTickets
-            
             present(controller, animated: true)
         }
-        
-        
     }
-    
 }
 
 extension HomePageViewController: CitiesTableViewControllerDelegate {

@@ -18,7 +18,6 @@ class MyTicketsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(myTickets)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -49,13 +48,12 @@ class MyTicketsViewController: UIViewController {
             }
         }
     }
-    
+    // Func to do maps search
     func searchInAppleMaps(city: String) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "\(city) otogar"
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.1885, longitude: 29.0610), latitudinalMeters: 10000, longitudinalMeters: 10000)
         request.region = region
-        
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             if let error = error {
@@ -72,15 +70,12 @@ class MyTicketsViewController: UIViewController {
             }
         }
     }
-    
-    
-    
 }
 extension MyTicketsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTickets.count
     }
-    
+    // Formatting the day and month to be a string
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var day = String()
         var month = String()
@@ -89,7 +84,6 @@ extension MyTicketsViewController: UITableViewDelegate, UITableViewDataSource {
         // Formatting Month
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM"
-        
         if let date = dateFormatter.date(from: allTickets[indexPath.row].date!.month) {
             dateFormatter.dateFormat = "MMMM"
             month = dateFormatter.string(from: date)
@@ -105,13 +99,11 @@ extension MyTicketsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             print("Invalid day")
         }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "myTicketCell", for: indexPath) as! MyTicketsTableViewCell
         let price = String(allTickets[indexPath.row].price!)
         let seatLabelString = allTickets[indexPath.row].selectedChairs!.map { String($0) }.joined(separator: ",")
         let from = allTickets[indexPath.row].from
         let to = allTickets[indexPath.row].to
-        
         
         cell.selectionStyle = .none
         cell.dateTimeLabel.text = "\(day) \(month) 20\(year!) - \(clock!)"

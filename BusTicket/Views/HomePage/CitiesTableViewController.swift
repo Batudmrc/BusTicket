@@ -65,7 +65,6 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate {
         }
         cell.textLabel?.text = city
         return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -74,18 +73,17 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate {
             cell.alpha = 1
         }
     }
-        
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
         filteredCities = cities.filter({$0.lowercased().contains(textSearched.lowercased())})
         tableView.reloadData()
-        print(filteredCities)
     }
     
     func filterContextForSearchText(searchText: String) {
         filteredCities = cities.filter({ (text:String) -> Bool in
             return text.lowercased().contains(searchText.lowercased())
         }
-    )
+        )
     }
     
     func setupSearchBar() {
@@ -98,5 +96,5 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.showsCancelButton = false
         view.addSubview(searchBar)
     }
-
+    
 }

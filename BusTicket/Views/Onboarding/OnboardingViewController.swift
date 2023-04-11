@@ -7,8 +7,8 @@
 
 import UIKit
 class OnboardingViewController: UIViewController {
-
-
+    
+    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
