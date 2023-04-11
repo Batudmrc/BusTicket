@@ -54,29 +54,8 @@ class HomePageViewController: UIViewController {
         self.setupLabelTap(for: self.toLabel, withTag: 2)
         
         // Getting the users city
-        let geocoder = CLGeocoder()
-        if let userLocation = locationManager.location {
-            geocoder.reverseGeocodeLocation(userLocation) { [self] (placemarks, error) in
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                    return
-                }
-                if let placemark = placemarks?.first {
-                    if itemsTVC.cities.contains(placemark.administrativeArea ?? "") {
-                        UIView.transition(with: fromLabel, duration: 0.15, options: .transitionCrossDissolve, animations: {
-                            self.fromLabel.text = placemark.administrativeArea ?? ""
-                        }, completion: nil)
-                    } else { // Checking if this is apps first launch
-                        if !isLaunched {
-                            showAlert(title: "Uyarı", message: "Bulunduğunuz bölgeye hizmet veremiyoruz. Fakat yine de belirtilen bölgelere bilet alabilirsiniz")
-                            isLaunched = true
-                        }
-                    }
-                }
-            }
-        } else {
-            print("User location not found.")
-        }
+        showUsersLocation()
+        
     }
     
     // Destination Selection
@@ -230,6 +209,32 @@ class HomePageViewController: UIViewController {
             break
         }
         return "fail"
+    }
+    
+    func showUsersLocation() {
+        let geocoder = CLGeocoder()
+        if let userLocation = locationManager.location {
+            geocoder.reverseGeocodeLocation(userLocation) { [self] (placemarks, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                if let placemark = placemarks?.first {
+                    if itemsTVC.cities.contains(placemark.administrativeArea ?? "") {
+                        UIView.transition(with: fromLabel, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                            self.fromLabel.text = placemark.administrativeArea ?? ""
+                        }, completion: nil)
+                    } else { // Checking if this is apps first launch
+                        if !isLaunched {
+                            showAlert(title: "Uyarı", message: "Bulunduğunuz bölge olan \(placemark.country ?? "") bölgesine hizmet veremiyoruz. Fakat yine de belirtilen bölgelere bilet alabilirsiniz")
+                            isLaunched = true
+                        }
+                    }
+                }
+            }
+        } else {
+            print("User location not found.")
+        }
     }
     
     func showSettingsAlert() {
