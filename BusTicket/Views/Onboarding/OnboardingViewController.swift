@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 class OnboardingViewController: UIViewController {
     
     
@@ -13,6 +14,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let locationManager = CLLocationManager()
     var slides: [OnboardingSlide] = []
     var isLaunchedBefore: Bool!
     
@@ -29,10 +31,32 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         slides = [OnboardingSlide(title: "Otobüs Bileti Almak Hiç Bu Kadar Kolay Olmamıştı!", description: "Tek yapmanız gereken seyahat tarihlerinizi seçmek ve gideceğiniz nokteleri belirlemek. Geri kalan her şeyi uygulamamız hallediyor!", image: "bus"),OnboardingSlide(title: "Hızlı ve Güvenli Online Ödeme İşlemleri", description: "Saniyeler içinde ödeme yapabilirsiniz. Tüm ödemeleriniz güvenli bir şekilde işlenir ve hiçbir kişisel bilgi üçüncü taraflarla paylaşılmaz.", image: "payment"),OnboardingSlide(title: "İndirimli Fiyatlarla Yolculuk Keyfi", description: "Kuponlarla, yolculuklarınızı daha ucuza yapabilirsiniz. Uygulamamızdaki fırsatları takip ederek daha da fazla indirim kazanabilirsiniz.", image: "coupon")]
+        
+        
+        func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+            switch manager.authorizationStatus {
+            case .authorizedWhenInUse:
+                print("Location authorization granted.")
+            case .denied, .restricted:
+                print("test")
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                break
+            }
+        }
     }
+    
+    
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         
@@ -65,17 +89,15 @@ class OnboardingViewController: UIViewController {
     
 }
 
-extension OnboardingViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension OnboardingViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return slides.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
         cell.setup(slides[indexPath.row])
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 public var selection = UILabel()
 var allTickets = [Ticket]()
 var seatStubs = [SeatStub]()
+var isLaunched = false
 
 class HomePageViewController: UIViewController {
     
@@ -21,6 +23,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var todayButton: UIButton!
     @IBOutlet weak var cardView: CardView!
     
+    let locationManager = CLLocationManager()
     var ticket = Ticket()
     var todaysDateAsString = String()
     var todayDateAsDate = Date()
@@ -35,8 +38,45 @@ class HomePageViewController: UIViewController {
         setupDateField()
         setupButtons()
         
+        // Checking if user gave permission to location services
+        switch locationManager.authorizationStatus {
+        case .authorizedWhenInUse:
+            print("Location authorization granted.")
+        case .denied, .restricted:
+            showSettingsAlert()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            break
+        }
+        
         self.setupLabelTap(for: self.fromLabel, withTag: 1)
         self.setupLabelTap(for: self.toLabel, withTag: 2)
+        
+        // Getting the users city
+        let geocoder = CLGeocoder()
+        if let userLocation = locationManager.location {
+            geocoder.reverseGeocodeLocation(userLocation) { [self] (placemarks, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                if let placemark = placemarks?.first {
+                    if itemsTVC.cities.contains(placemark.administrativeArea ?? "") {
+                        UIView.transition(with: fromLabel, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                            self.fromLabel.text = placemark.administrativeArea ?? ""
+                        }, completion: nil)
+                    } else { // Checking if this is apps first launch
+                        if !isLaunched {
+                            showAlert(title: "Uyarı", message: "Bulunduğunuz bölgeye hizmet veremiyoruz. Fakat yine de belirtilen bölgelere bilet alabilirsiniz")
+                            isLaunched = true
+                        }
+                    }
+                }
+            }
+        } else {
+            print("User location not found.")
+        }
     }
     
     // Destination Selection
@@ -59,6 +99,8 @@ class HomePageViewController: UIViewController {
         }
         self.present(self.itemsTVC, animated: true)
     }
+    
+    
     
     func setupLabelTap(for label: UILabel, withTag tag: Int) {
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction(_:)))
@@ -190,12 +232,30 @@ class HomePageViewController: UIViewController {
         return "fail"
     }
     
+    func showSettingsAlert() {
+        let alert = UIAlertController(title: "Konum izni gerekli", message: "Uygulamadan tam olarak faydalanabilmek için ayarlar kısmından uygulamanın konum servislerini kullanmasına izin verin", preferredStyle: .alert)
+        let settingsAction = UIAlertAction(title: "Ayarlar", style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Geri", style: .cancel, handler: nil)
+        alert.addAction(settingsAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    
     
     @IBAction func myTicketsTapped(_ sender: Any) {
         if allTickets.isEmpty {
@@ -210,7 +270,7 @@ class HomePageViewController: UIViewController {
     }
 }
 
-extension HomePageViewController: CitiesTableViewControllerDelegate {
+extension HomePageViewController: CitiesTableViewControllerDelegate, CLLocationManagerDelegate {
     func citiesTableViewControllerDidSelect(city: String, forLabel label: UILabel) {
         if itemsTVC.sheetPresentationController != nil {
             dismiss(animated: true)
