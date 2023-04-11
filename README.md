@@ -17,6 +17,15 @@ An iOS app that simulates a ticket reservation system. Made with UIKit
   * Can't see bought tickets if user hadn't bought one
   * Can't select past date
   * Can't get more than 5 seats at a time
+* Regex for textfields
+  * Name-Surname field
+    * Can't type numbers
+    * Name or Surname can't be one character
+    * Can't type only name
+    * Field can be 26 characters long max
+  * Id field
+    * Id should be 11 characters
+    * Can't type letters
 # Screen Records
 
 ## Full Review
