@@ -34,14 +34,45 @@ An iOS app that simulates a ticket reservation system. Made with UIKit
 # Screen Records
 
 ## Full Review
-// Fullreview record here
+
+https://user-images.githubusercontent.com/87566024/231261078-f2c7b31f-d0f6-4bb0-8d50-08cda9b7543d.mp4
+
+
 ## Onboarding
-// Onboarding record here
+
+
+
+https://user-images.githubusercontent.com/87566024/231261424-eea393b6-e2c3-4bec-8d97-6e07c6692b26.mp4
+
+
+
 ## Apple Maps
-// Maps record here
+
+
+
+https://user-images.githubusercontent.com/87566024/231261549-b0957002-3594-4b4b-a487-b2ceabbb9080.mp4
+
+
+
 ## Location Services ( Granted Permission - In Service Area)
-// In service area record here
+Device's custom location is on Eskişehir
+
+
+https://user-images.githubusercontent.com/87566024/231261718-04756aac-50ec-48ae-b6b8-bf35e6208a31.mp4
+
+
+
 ## Location Services ( Granted Permission - Outside of Service Area)
-// Out of Service Area record here
+
+
+
+https://user-images.githubusercontent.com/87566024/231261904-2cb788bc-eb74-4682-a9c6-80790286a451.mp4
+
+
+
 ## Location Services ( Denied Permission )
-// Not granted record here
+
+
+https://user-images.githubusercontent.com/87566024/231262024-c836d1e2-c4d4-416f-bd8d-0b40dec22ab5.mp4
+
+
