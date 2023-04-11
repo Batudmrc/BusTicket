@@ -1,10 +1,8 @@
 # BusTicket
 
-<details>
-           <summary>Error Handlings</summary>
-           <p>-Abc</p>
-         </details>
+An iOS app that simulates a ticket reservation system. Made with UIKit
 
+## Functions
 
 * Onboarding page
 * Button that shows location of selected bus station to user on Apple Maps
@@ -19,3 +17,15 @@
   * Can't see bought tickets if user hadn't bought one
   * Can't select past date
   * Can't get more than 5 seats at a time
+# Screen Records
+
+## Full Review
+// Fullreview record here
+## Onboarding
+// Onboarding record here
+## Apple Maps
+// Maps record here
+## Location Services ( Granted Permission - In Service Area)
+// In service area record here
+## Location Services ( Granted Permission - Out of Service Area)
+// Out of Service Area record here
