@@ -27,5 +27,7 @@ An iOS app that simulates a ticket reservation system. Made with UIKit
 // Maps record here
 ## Location Services ( Granted Permission - In Service Area)
 // In service area record here
-## Location Services ( Granted Permission - Out of Service Area)
+## Location Services ( Granted Permission - Outside of Service Area)
 // Out of Service Area record here
+## Location Services ( Denied Permission )
+// Not granted record here
