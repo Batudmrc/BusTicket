@@ -5,6 +5,7 @@ An iOS app that simulates a ticket reservation system. Made with UIKit
 ## Functions
 
 * Onboarding page
+  * Shows up only on first launch
 
 * Button that shows location of selected bus station to user on Apple Maps
 
