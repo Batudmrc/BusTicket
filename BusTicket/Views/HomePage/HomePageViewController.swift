@@ -58,7 +58,7 @@ class HomePageViewController: UIViewController {
         
     }
     
-    // Destination Selection
+    // Departure and Destination Selection Starts here
     // In this function, I create a tap gesture and I use tags to differenciate labels
     @IBAction func tapFunction(_ sender: UITapGestureRecognizer) {
         self.itemsTVC.delegate = self
@@ -70,7 +70,7 @@ class HomePageViewController: UIViewController {
             if tag == 2 {
                 selection = toLabel
             }
-        }
+        } // Connection tableview to sheetPresentation
         if let sheet = self.itemsTVC.sheetPresentationController {
             sheet.detents = [.medium(),.large()]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = true
@@ -79,8 +79,6 @@ class HomePageViewController: UIViewController {
         self.present(self.itemsTVC, animated: true)
     }
     
-    
-    
     func setupLabelTap(for label: UILabel, withTag tag: Int) {
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction(_:)))
         label.isUserInteractionEnabled = true
@@ -88,7 +86,7 @@ class HomePageViewController: UIViewController {
         label.tag = tag
     }
     
-    // Destination Selection
+    // Departure and Destination Selection Ends Here
     
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
@@ -210,7 +208,7 @@ class HomePageViewController: UIViewController {
         }
         return "fail"
     }
-    
+    // Getting users location and changing the fromLabel
     func showUsersLocation() {
         let geocoder = CLGeocoder()
         if let userLocation = locationManager.location {
@@ -238,6 +236,7 @@ class HomePageViewController: UIViewController {
     }
     
     func showSettingsAlert() {
+        // Alert to show when user denied the location permission
         let alert = UIAlertController(title: "Konum izni gerekli", message: "Uygulamadan tam olarak faydalanabilmek için ayarlar kısmından uygulamanın konum servislerini kullanmasına izin verin", preferredStyle: .alert)
         let settingsAction = UIAlertAction(title: "Ayarlar", style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -259,7 +258,6 @@ class HomePageViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-    
     
     
     @IBAction func myTicketsTapped(_ sender: Any) {

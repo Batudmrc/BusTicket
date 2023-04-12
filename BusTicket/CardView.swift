@@ -17,7 +17,7 @@ class CardView: UIView {
         super.init(coder: coder)
         initialSetup()
     }
-    
+    // This class adds shadowing effect in UIView's
     private func initialSetup() {
         layer.backgroundColor = .init(red: 255, green: 255, blue: 255, alpha: 1)
         layer.shadowOffset = .zero

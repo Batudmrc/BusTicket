@@ -11,4 +11,11 @@ struct TicketDate {
     var day = "01"
     var month = "04"
     var year = "2023"
+    
+    
+    func printDate() {
+        print("Gün: \(day), Ay: \(month), Yıl: \(year)")
+    }
+    
+    
 }

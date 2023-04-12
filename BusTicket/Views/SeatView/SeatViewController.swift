@@ -24,7 +24,7 @@ class SeatViewController: UIViewController {
         setupFields(field: nameField,placeholder: "Ad Soyad Giriniz")
         setupFields(field: idField,placeholder: "T.C. Kimlik No Giriniz")
         
-        
+        // Notification center if user tried to pick 6th seat
         NotificationCenter.default.addObserver(forName: Notification.Name("SelectedSeatCountExceeded"), object: nil, queue: .main) { [weak self] (_) in
             if let strongSelf = self {
                     strongSelf.showAlert(title: "Hata", message: "En fazla 5 adet koltuk seçilebilir")
@@ -41,6 +41,7 @@ class SeatViewController: UIViewController {
         let mock = MockSeatCreater()
         var first = mock.create(count: 45)
         
+        // Showing unavailable seats and their genders
         for i in allTickets {
             if i.from == ticket.from && i.to == ticket.to && i.clock == ticket.clock && i.date?.year == ticket.date?.year && i.date?.month == ticket.date?.month && i.date?.day == ticket.date?.day {
                 for seat in i.seatInfo ?? [] {
@@ -57,6 +58,7 @@ class SeatViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBAction func payButton(_ sender: Any) {
+        // Error handlings
         if idField.text != ""  && nameField.text != "" {
             if let text = nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                text.components(separatedBy: " ").count < 2 {

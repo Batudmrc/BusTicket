@@ -10,4 +10,10 @@ import Foundation
 struct Passenger {
     var name = "İsimsiz İsimsiz"
     var id = 0
+    
+    func printName() {
+        print("Yolcu adı: \(name), Yolcu")
+    }
+    
 }
+

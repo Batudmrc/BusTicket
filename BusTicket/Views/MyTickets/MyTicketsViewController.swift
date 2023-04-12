@@ -37,7 +37,7 @@ class MyTicketsViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+    // Making label disappear with animation after 3 seconds
     func delayedDisappear(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             UIView.animate(withDuration: 0.4, animations: {

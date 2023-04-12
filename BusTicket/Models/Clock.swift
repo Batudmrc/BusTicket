@@ -10,4 +10,9 @@ import Foundation
 struct Clock {
     var hour = 0
     var minute  = 0
+    
+    
+    func printClock() {
+        print("Saat : \(hour), Dakika : \(minute)")
+    }
 }
